@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:task1_cubit/core/responsive.dart';
-import 'package:task1_cubit/features/test/presentation/view/route.dart';
+import 'package:task1_cubit/core/route/route.dart';
 
 void main() {
   runApp(const MyApp());
