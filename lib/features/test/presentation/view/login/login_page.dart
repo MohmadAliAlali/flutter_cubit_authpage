@@ -86,7 +86,7 @@ class LoginPage extends StatelessWidget {
                                   onPressed: () {
                                     Navigation.navigateTo(
                                       context,
-                                      RestPasswordPage(),
+                                      '/rePass',
                                     );
                                   },
                                   label: Text('rest password'),
@@ -112,7 +112,7 @@ class LoginPage extends StatelessWidget {
                                   onPressed: () {
                                     Navigation.navigateTo(
                                       context,
-                                      RegisterPage(),
+                                      '/register',
                                     );
                                   },
                                   label: Text('register'),

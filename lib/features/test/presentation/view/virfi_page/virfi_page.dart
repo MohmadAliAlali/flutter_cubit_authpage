@@ -84,7 +84,7 @@ class VirfiPage extends StatelessWidget {
                                 Text('resend virfication code '),
                                 TextButton.icon(
                                   onPressed: () {
-                                    Navigation.navigateTo(context, LoginPage());
+                                    Navigation.navigateTo(context, '/login');
                                   },
                                   label: Text('send'),
                                 ),

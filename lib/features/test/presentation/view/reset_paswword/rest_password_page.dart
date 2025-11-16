@@ -41,7 +41,7 @@ class RestPasswordPage extends StatelessWidget {
                 backgroundColor: Colors.green,
               ),
             );
-            Navigation.navigateTo(context, VirfiPage());
+            Navigation.navigateTo(context, '/virfi');
           }
         },
         builder: (context, state) {
@@ -97,7 +97,7 @@ class RestPasswordPage extends StatelessWidget {
                                 Text(' i want back to '),
                                 TextButton.icon(
                                   onPressed: () {
-                                    Navigation.navigateTo(context, LoginPage());
+                                    Navigation.navigateTo(context, '/login');
                                   },
                                   label: Text('login'),
                                 ),

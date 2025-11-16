@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
 class Navigation {
-  static void navigateTo(BuildContext context, Widget screen) {
-    Navigator.push(
+  static void navigateTo(BuildContext context, String screen) {
+    Navigator.pushNamed(
       context,
-      MaterialPageRoute(builder: (context) => screen),
+      screen,
     );
   }
 
-  static void navigateAndRemove(BuildContext context, Widget screen) {
-    Navigator.pushAndRemoveUntil(
+  static void navigateAndRemove(BuildContext context, String screen) {
+    Navigator.pushNamedAndRemoveUntil(
       context,
-      MaterialPageRoute(builder: (context) => screen),
+      screen,
           (route) => false,
     );
   }

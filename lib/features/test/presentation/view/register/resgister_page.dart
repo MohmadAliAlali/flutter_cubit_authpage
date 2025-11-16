@@ -47,7 +47,7 @@ class RegisterPage extends StatelessWidget {
                 backgroundColor: Colors.green,
               ),
             );
-            Navigation.navigateAndRemove(context, VirfiPage());
+            Navigation.navigateAndRemove(context,'/virfi');
           }
         },
         builder: (context, state) {
@@ -128,7 +128,7 @@ class RegisterPage extends StatelessWidget {
                                 Text('you dont have any acount'),
                                 TextButton.icon(
                                   onPressed: () {
-                                    Navigation.navigateTo(context, LoginPage());
+                                    Navigation.navigateTo(context, '/login');
                                   },
                                   label: Text('register'),
                                 ),
