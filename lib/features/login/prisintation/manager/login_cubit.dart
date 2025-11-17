@@ -1,13 +1,21 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-part './login_state.dart';
+part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
 
-  void validateFields({
-    required String email,
-    required String password,
-  }) {
+  final email = TextEditingController();
+  final password = TextEditingController();
+
+  @override
+  Future<void> close() {
+    email.dispose();
+    password.dispose();
+    return super.close();
+  }
+
+  void validateFields({required String email, required String password}) {
     // تفريغ جميع الأخطاء قبل التحقق
     emit(LoginInitial());
 

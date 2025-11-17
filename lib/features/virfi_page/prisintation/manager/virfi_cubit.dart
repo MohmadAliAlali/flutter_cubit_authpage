@@ -1,9 +1,17 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 part 'virfi_state.dart';
 
 class VirfiCubit extends Cubit<VirfiState> {
   VirfiCubit() : super(VirfiInitial());
 
+  final code = TextEditingController();
+
+  @override
+  Future<void> close() {
+    code.dispose();
+    return super.close();
+  }
   void validateFields({
     required String code,
   }) {

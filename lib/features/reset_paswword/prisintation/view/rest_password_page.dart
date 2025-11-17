@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:task1_cubit/core/font.dart';
 import 'package:task1_cubit/core/navigation.dart';
 import 'package:task1_cubit/core/responsive.dart';
-import 'package:task1_cubit/features/test/presentation/view/login/login_page.dart';
-import 'package:task1_cubit/features/test/presentation/view/manager/reset_pasword/reset_password_cubit.dart';
-import 'package:task1_cubit/features/test/presentation/view/virfi_page/virfi_page.dart';
-import 'package:task1_cubit/features/test/presentation/view/widget/custom_button.dart';
-import 'package:task1_cubit/features/test/presentation/view/widget/custom_password_field.dart';
-import 'package:task1_cubit/features/test/presentation/view/widget/custom_text_field.dart';
+import 'package:task1_cubit/features/reset_paswword/prisintation/manager/reset_password_cubit.dart';
+import 'package:task1_cubit/core/widget/custom_button.dart';
+import 'package:task1_cubit/core/widget/custom_password_field.dart';
+import 'package:task1_cubit/core/widget/custom_text_field.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 // ignore: must_be_immutable
