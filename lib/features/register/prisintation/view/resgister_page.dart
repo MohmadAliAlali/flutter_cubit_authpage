@@ -59,7 +59,7 @@ class RegisterPage extends StatelessWidget {
                               CustomTextField(
                                 controller: firstName,
                                 labelText: "First Name",
-                                width: 160.w,
+                                width: 148.w,
                                 isError:
                                     state is RegisterFieldError &&
                                     state.field == "first",
@@ -68,7 +68,7 @@ class RegisterPage extends StatelessWidget {
                               CustomTextField(
                                 controller: lastName,
                                 labelText: "Last Name",
-                                width: 160.w,
+                                width: 148.w,
                                 isError:
                                     state is RegisterFieldError &&
                                     state.field == "last",
@@ -101,10 +101,7 @@ class RegisterPage extends StatelessWidget {
                                   context,
                                   "Registration successful please virfication email!",
                                 );
-                                // Navigation.navigateAndRemove(
-                                //   context,
-                                //   '/virfi',
-                                // );
+                                Navigation.navigateAndRemove(context, '/virfi');
                               }
                             },
                             child: CustomButton(
@@ -128,7 +125,7 @@ class RegisterPage extends StatelessWidget {
                                 onPressed: () {
                                   Navigation.navigateTo(context, '/login');
                                 },
-                                label: Text('register'),
+                                label: Text('login'),
                               ),
                             ],
                           ),

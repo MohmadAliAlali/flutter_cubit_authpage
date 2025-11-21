@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:task1_cubit/features/home/home_page.dart';
+import 'package:task1_cubit/features/home/prisintation/view/home_page.dart';
 import 'package:task1_cubit/features/login/prisintation/view/login_page.dart';
 import 'package:task1_cubit/features/navbar/prisintation/view/navbar_page.dart';
 import 'package:task1_cubit/features/profile/prisintation/view/profile_page.dart';

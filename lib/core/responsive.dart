@@ -9,10 +9,11 @@ class ScreenUtil {
 
   static void init(BuildContext context) {
     final MediaQueryData mediaQuery = MediaQuery.of(context);
-    screenWidth = mediaQuery.size.width /screenWidthUI;
+    screenWidth = mediaQuery.size.width / screenWidthUI;
     screenHeight = mediaQuery.size.height / screenHeightUI;
     scaleFactor = (screenWidth + screenHeight) / 2;
   }
+
   static double getScaleFactor() {
     return scaleFactor;
   }
@@ -32,14 +33,15 @@ class ScreenUtil {
   static double getRadius(double designRadius) {
     return designRadius * scaleFactor;
   }
+
   static double getEqualSize(double designRadius) {
     return designRadius * scaleFactor;
   }
+
   static EdgeInsets getPadding(double padding) {
     double scaledPadding = padding * getScaleFactor();
     return EdgeInsets.all(scaledPadding);
   }
-
 }
 
 extension IntSizeExtension on int {
@@ -61,6 +63,7 @@ extension SizeExtension on double {
 extension PaddingExtension on double {
   EdgeInsets get p => ScreenUtil.getPadding(this);
 }
+
 extension IntPaddingExtension on int {
   EdgeInsets get p => ScreenUtil.getPadding(toDouble());
 }

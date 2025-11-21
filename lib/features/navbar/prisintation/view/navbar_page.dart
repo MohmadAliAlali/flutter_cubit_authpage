@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:persistent_bottom_nav_bar/persistent_bottom_nav_bar.dart';
-import 'package:task1_cubit/features/home/home_page.dart';
+import 'package:task1_cubit/features/home/prisintation/view/home_page.dart';
 import 'package:task1_cubit/features/navbar/prisintation/manager/navbar_cubit.dart';
 import 'package:task1_cubit/features/profile/prisintation/view/profile_page.dart';
 import 'package:task1_cubit/features/settings/data/prisintation/view/settings_page.dart';

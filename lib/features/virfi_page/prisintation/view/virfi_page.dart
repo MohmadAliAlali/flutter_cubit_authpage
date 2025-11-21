@@ -65,6 +65,7 @@ class VirfiPage extends StatelessWidget {
                                       backgroundColor: Colors.green,
                                     ),
                                   );
+                                  Navigation.navigateTo(context, '/navbar');
                                 }
                               },
                               child: CustomButton(

@@ -83,9 +83,11 @@ class LoginPage extends StatelessWidget {
                                     context,
                                     'login successful!',
                                   );
+                                  Navigation.navigateTo(context, '/navbar');
                                 }
                               },
                               child: CustomButton(
+                                
                                 text: 'Login',
                                 onPressed: () {
                                   context.read<LoginCubit>().validateFields(
@@ -95,7 +97,7 @@ class LoginPage extends StatelessWidget {
                                 },
                               ),
                             ),
-                            SizedBox(height: 80.h),
+                            SizedBox(height: 60.h),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [

@@ -23,19 +23,18 @@ class ProfilePage extends StatelessWidget {
             Spacer(),
             Center(
               child: Container(
-                padding: EdgeInsets.all(3), // سماكة الإطار
+                padding: EdgeInsets.all(3), 
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: Theme.of(context).brightness == Brightness.dark
-                        ? Colors
-                              .teal // لون الإطار في الدارك
-                        : Colors.blue, // لون الإطار في اللايت
+                    color: Theme.of(
+                      context,
+                    ).colorScheme.primary, 
                     width: 3,
                   ),
                 ),
                 child: CircleAvatar(
-                  radius: 80, // حجم الصورة
+                  radius: 100, 
                   backgroundImage: AssetImage("assets/mock_data/profile.png"),
                 ),
               ),
@@ -46,7 +45,7 @@ class ProfilePage extends StatelessWidget {
               title: 'name',
               info: 'Mohammad Ali Alali',
               width1: 100.w,
-              width2: 230,
+              width2: 223,
               color: on,
               textStyle: TextStyle(color: off),
             ),
@@ -55,7 +54,7 @@ class ProfilePage extends StatelessWidget {
               title: 'Bearth Day ',
               info: '27/7/2003',
               width1: 150.w,
-              width2: 185,
+              width2: 172,
               color: on,
               textStyle: TextStyle(color: off),
             ),
@@ -64,7 +63,7 @@ class ProfilePage extends StatelessWidget {
               title: 'Localtion',
               info: 'Damascus Syria',
               width1: 100.w,
-              width2: 230,
+              width2: 223,
               color: on,
               textStyle: TextStyle(color: off),
             ),
@@ -73,7 +72,7 @@ class ProfilePage extends StatelessWidget {
               title: 'Email',
               info: 'mohmad287@gmail.com',
               width1: 100.w,
-              width2: 230,
+              width2: 223,
               color: on,
               textStyle: TextStyle(color: off),
             ),
