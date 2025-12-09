@@ -6,7 +6,6 @@ import 'package:task1_cubit/core/widget/app_bar.dart';
 import 'package:task1_cubit/features/product_info/prisintation/manager/product_info_cubit.dart';
 import 'package:task1_cubit/features/product_info/prisintation/manager/product_info_state.dart';
 import 'package:task1_cubit/features/product_info/prisintation/view/widget/floating_bar.dart';
-import 'package:task1_cubit/features/product_info/prisintation/view/widget/floationg_button.dart';
 import 'package:task1_cubit/features/product_info/prisintation/view/widget/galss_card.dart';
 import 'package:task1_cubit/features/product_info/prisintation/view/widget/glow_badg.dart';
 

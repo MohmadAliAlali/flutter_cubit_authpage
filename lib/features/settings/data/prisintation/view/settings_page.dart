@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task1_cubit/core/widget/app_bar.dart';
 import 'package:task1_cubit/core/widget/glass_button.dart';
-import 'package:task1_cubit/features/product_info/prisintation/view/widget/galss_card.dart';
 import 'package:task1_cubit/features/settings/data/prisintation/view/widget/language.dart';
 import 'package:task1_cubit/features/settings/data/prisintation/view/widget/them_mode.dart';
 
