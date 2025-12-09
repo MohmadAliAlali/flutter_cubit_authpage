@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:task1_cubit/core/widget/Info_continer.dart';
+import 'package:task1_cubit/features/register/data/local/user_local_storage.dart';
 
 class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
-
+  ProfilePage({super.key});
+  final UserLocalStorage storage = UserLocalStorage();
   @override
   Widget build(BuildContext context) {
     Color on = Theme.of(context).colorScheme.primary;
     Color off = Theme.of(context).colorScheme.tertiary;
+    final user = storage.getUser();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Profile'),
@@ -23,18 +25,16 @@ class ProfilePage extends StatelessWidget {
             Spacer(),
             Center(
               child: Container(
-                padding: EdgeInsets.all(3), 
+                padding: EdgeInsets.all(3),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   border: Border.all(
-                    color: Theme.of(
-                      context,
-                    ).colorScheme.primary, 
+                    color: Theme.of(context).colorScheme.primary,
                     width: 3,
                   ),
                 ),
                 child: CircleAvatar(
-                  radius: 100, 
+                  radius: 100,
                   backgroundImage: AssetImage("assets/mock_data/profile.png"),
                 ),
               ),
@@ -43,7 +43,7 @@ class ProfilePage extends StatelessWidget {
             SizedBox(height: 10.h),
             InfoContiner(
               title: 'name',
-              info: 'Mohammad Ali Alali',
+              info: '${user?['name']} ${user?['lastName']}',
               width1: 100.w,
               width2: 223,
               color: on,
@@ -70,7 +70,7 @@ class ProfilePage extends StatelessWidget {
             SizedBox(height: 10.h),
             InfoContiner(
               title: 'Email',
-              info: 'mohmad287@gmail.com',
+              info: user?['email'],
               width1: 100.w,
               width2: 223,
               color: on,

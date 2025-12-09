@@ -1,57 +1,16 @@
-# Task 1 - Cubit State Management
+# task1_cubit
 
-A Flutter project demonstrating state management using the Cubit pattern with the `flutter_bloc` package.
-
-## Features
-
-- State management using Cubit
-- Clean architecture pattern
-- Example auth screen application
-- Easy to understand and extend
-
-## Prerequisites
-
-- Flutter SDK (latest stable version)
-- Dart SDK (included with Flutter)
-- Android Studio or VS Code with Flutter plugins
+A new Flutter project.
 
 ## Getting Started
 
-1. **Clone the repository**
-   ```bash
-   git clone <repository-url>
-   cd task1_cubit
-   ```
+This project is a starting point for a Flutter application.
 
-2. **Install dependencies**
-   ```bash
-   flutter pub get
-   ```
+A few resources to get you started if this is your first Flutter project:
 
-3. **Run the app**
-   ```bash
-   flutter run
-   ```
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-## Project Structure
-
-```
-lib/
-├── cubits/         # Cubit classes
-├── views/          # UI components
-└── main.dart       # Application entry point
-```
-
-## Dependencies
-
-- `flutter_bloc`: ^8.1.3
-
-## Resources
-
-- [Flutter Documentation](https://flutter.dev/docs)
-- [Bloc Library Documentation](https://bloclibrary.dev/)
-- [Dart Documentation](https://dart.dev/guides)
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.

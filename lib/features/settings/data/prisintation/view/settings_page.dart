@@ -1,120 +1,97 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:task1_cubit/core/style/font.dart';
-import 'package:task1_cubit/core/widget/bottun_selected.dart';
-import 'package:task1_cubit/features/settings/data/prisintation/manager/settings_cubit.dart';
+import 'package:task1_cubit/core/widget/app_bar.dart';
+import 'package:task1_cubit/core/widget/glass_button.dart';
+import 'package:task1_cubit/features/product_info/prisintation/view/widget/galss_card.dart';
+import 'package:task1_cubit/features/settings/data/prisintation/view/widget/language.dart';
+import 'package:task1_cubit/features/settings/data/prisintation/view/widget/them_mode.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    Color on = Theme.of(context).colorScheme.primary;
-    Color off = Theme.of(context).colorScheme.tertiary;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Settings'),
-        centerTitle: true,
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(16.w, 0, 16.w, 70.h),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Spacer(),
-            Text('Theme Mode', style: TaskTextStyle.text18blackBlod),
-            SizedBox(height: 16.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ButtonSelected(
-                  text: 'Light Mode',
-                  onPressed: () {
-                    context.read<SettingsCubit>().changeMode(
-                      mode: ThemeMode.light,
-                    );
-                  },
-                  color:
-                      context.watch<SettingsCubit>().themeMode ==
-                          ThemeMode.light
-                      ? on
-                      : off,
+      extendBodyBehindAppBar: true,
+      appBar: glassAppBar('Settings', context),
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: Theme.of(context).brightness == Brightness.dark
+                ? const [Color(0xFF1E1E1E), Color(0xFF121212)]
+                : const [Color(0xFFF5F5F5), Color(0xFFE0E0E0)],
+          ),
+        ),
+
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(24),
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 8, sigmaY: 8),
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white.withAlpha(8),
+                  borderRadius: BorderRadius.circular(16),
+                  border: Border.all(
+                    color: Theme.of(context).colorScheme.tertiary.withAlpha(30),
+                    width: 1.6,
+                  ),
                 ),
-                ButtonSelected(
-                  text: 'Dark Mode',
-                  onPressed: () {
-                    context.read<SettingsCubit>().changeMode(
-                      mode: ThemeMode.dark,
-                    );
-                  },
-                  color:
-                      context.watch<SettingsCubit>().themeMode == ThemeMode.dark
-                      ? on
-                      : off,
+                child: 
+                  SafeArea(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Spacer(),
+                        SizedBox(height: 16.h),
+                        ThemMode(),
+                        Language(),
+                        glassButton(
+                          label: 'About Us',
+                          onTap: () {},
+                          context: context,
+                        ),
+                        glassButton(
+                          label: 'Upgrade Acount',
+                          onTap: () {},
+                          context: context,
+                        ),
+                        glassButton(
+                          label: 'Create Acount',
+                          onTap: () {
+                            Navigator.pushNamed(context, '/register');
+                          },
+                          context: context,
+                        ),
+                        glassButton(
+                          label: 'Veiw Profile',
+                          onTap: () {
+                            Navigator.pushNamed(context, '/profile');
+                          },
+                          context: context,
+                        ),
+                        glassButton(
+                          label: 'Cart',
+                          onTap: () {
+                            Navigator.pushNamed(context, '/cart');
+                          },
+                          context: context,
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-                ButtonSelected(
-                  text: 'System Mode',
-                  onPressed: () {
-                    context.read<SettingsCubit>().changeMode(
-                      mode: ThemeMode.system,
-                    );
-                  },
-                  color:
-                      context.watch<SettingsCubit>().themeMode ==
-                          ThemeMode.system
-                      ? on
-                      : off,
-                ),
-              ],
-            ),
-            SizedBox(height: 10.h),
-            Text('Language', style: TaskTextStyle.text18blackBlod),
-            SizedBox(height: 10.h),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                ButtonSelected(
-                  text: 'Arabic',
-                  onPressed: () {
-                    context.read<SettingsCubit>().changeLanguage(lan: "arabic");
-                  },
-                  width: 150,
-                  color: context.watch<SettingsCubit>().themeLanguag == "arabic"
-                      ? on
-                      : off,
-                ),
-                ButtonSelected(
-                  text: 'English',
-                  onPressed: () {
-                    context.read<SettingsCubit>().changeLanguage(
-                      lan: "english",
-                    );
-                  },
-                  width: 150.w,
-                  color:
-                      context.watch<SettingsCubit>().themeLanguag == "english"
-                      ? on
-                      : off,
-                ),
-              ],
-            ),
-            SizedBox(height: 10.h),
-            ButtonSelected(
-              text: 'About Us',
-              onPressed: () {},
-              color: on,
-              textStyle: TextStyle(color: off),
-            ),
-            SizedBox(height: 10.h),
-            ButtonSelected(
-              text: 'Upgrade Acount',
-              onPressed: () {},
-              color: on,
-              textStyle: TextStyle(color: off),
-            ),
-          ],
+              ),
+          
+          ),
         ),
       ),
     );

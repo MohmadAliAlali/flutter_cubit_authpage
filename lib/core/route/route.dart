@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:task1_cubit/features/cart/prisintation/view/cart_page.dart';
+import 'package:task1_cubit/features/favourites/prisintation/view/favourites_page.dart';
 import 'package:task1_cubit/features/home/prisintation/view/home_page.dart';
 import 'package:task1_cubit/features/login/prisintation/view/login_page.dart';
 import 'package:task1_cubit/features/navbar/prisintation/view/navbar_page.dart';
@@ -25,6 +27,8 @@ abstract final class AppRoutes {
   static const String navBar = '/navbar';
   static const String listProduct = '/listProduct';
   static const String infoProduct = '/infoProduct';
+  static const String cart = '/cart';
+  static const String favourites = '/favourites';
 
   static final Map<String, WidgetBuilder> routes = {
     splash: (_) => const SplashPage(),
@@ -39,5 +43,7 @@ abstract final class AppRoutes {
     navBar: (_) => NavbarScreen(),
     listProduct: (_) => const ListProduct(),
     infoProduct: (_) => const ProductInfoPage(),
+    cart: (_) => const CartPage(),
+    favourites: (_) => const FavouritePage(),
   };
 }

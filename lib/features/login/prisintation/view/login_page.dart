@@ -83,7 +83,7 @@ class LoginPage extends StatelessWidget {
                                     context,
                                     'login successful!',
                                   );
-                                  Navigation.navigateTo(context, '/navbar');
+                                  Navigation.navigateAndRemove(context, '/navbar');
                                 }
                               },
                               child: CustomButton(

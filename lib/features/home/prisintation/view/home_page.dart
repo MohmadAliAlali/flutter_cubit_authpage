@@ -2,10 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:task1_cubit/core/navigation.dart';
-import 'package:task1_cubit/core/widget/list_view_iem.dart';
+import 'package:task1_cubit/core/widget/app_bar.dart';
+import 'package:task1_cubit/core/widget/glass_button.dart';
 import 'package:task1_cubit/features/home/prisintation/manager/home_cubit.dart';
 import 'package:task1_cubit/features/home/prisintation/manager/home_state.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task1_cubit/features/product_info/prisintation/view/widget/galss_card.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -15,74 +17,111 @@ class HomePage extends StatelessWidget {
     return BlocProvider(
       create: (_) => HomeCubit()..loadHomeContent(),
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text("Home Page"),
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          centerTitle: true,
-        ),
-        body: BlocBuilder<HomeCubit, HomeState>(
-          builder: (context, state) {
-            if (state is HomeLoading) {
-              return const Center(child: CircularProgressIndicator());
-            }
+        extendBodyBehindAppBar: true,
+        appBar: glassAppBar('Settings', context),
+        body: Stack(
+          children: [
+            Container(
+              width: double.infinity,
+              height: double.infinity,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: Theme.of(context).brightness == Brightness.dark
+                      ? const [Color(0xFF1E1E1E), Color(0xFF121212)]
+                      : const [Color(0xFFF5F5F5), Color(0xFFE0E0E0)],
+                ),
+              ),
+            ),
+            BlocBuilder<HomeCubit, HomeState>(
+              builder: (context, state) {
+                if (state is HomeLoading) {
+                  return const Center(child: CircularProgressIndicator());
+                }
 
-            if (state is HomeLoaded) {
-              return Column(
-                children: [
-                  CarouselSlider.builder(
-                    itemCount: state.sliderImages.length,
-                    itemBuilder: (context, index, realIndex) {
-                      return Container(
-                        margin: const EdgeInsets.all(12),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16),
-                          image: DecorationImage(
-                            image: AssetImage(state.sliderImages[index]),
-                            fit: BoxFit.cover,
-                          ),
+                if (state is HomeLoaded) {
+                  return 
+               
+                      Padding(
+                        padding: EdgeInsetsGeometry.fromLTRB(
+                          12.w,
+                          80.h,
+                          12.w,
+                          70.h,
                         ),
-                      );
-                    },
-                    options: CarouselOptions(
-                      height: 200,
-                      autoPlay: true,
-                      enlargeCenterPage: true,
-                      viewportFraction: 0.9,
-                      aspectRatio: 16 / 9,
-                      onPageChanged: (index, reason) {
-                        context.read<HomeCubit>().changeSlideManually(index);
-                      },
-                    ),
-                  ),
+                        child: Column(
+                          children: [
+                            glassCard(
+                              context: context,
+                              child: CarouselSlider.builder(
+                                itemCount: state.sliderImages.length,
+                                itemBuilder: (context, index, realIndex) {
+                                  return Container(
+                                    margin: EdgeInsets.all(2.r),
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(16.r),
+                                      image: DecorationImage(
+                                        image: AssetImage(
+                                          state.sliderImages[index],
+                                        ),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  );
+                                },
+                                options: CarouselOptions(
+                                  height: 200.h,
+                                  autoPlay: true,
+                                  enlargeCenterPage: true,
+                                  viewportFraction: 0.9,
+                                  aspectRatio: 16 / 9,
+                                  onPageChanged: (index, reason) {
+                                    context
+                                        .read<HomeCubit>()
+                                        .changeSlideManually(index);
+                                  },
+                                ),
+                              ),
+                            ),
+                            const SizedBox(height: 10),
+                            glassCard(
+                              context: context,
+                              child: Column(
+                                children: [
+                                  glassButton(
+                                    label: 'Cart',
+                                    onTap: () {
+                                      Navigation.navigateToScreen(
+                                        context,
+                                        '/cart',
+                                      );
+                                    },
+                                    context: context,
+                                  ),
+                                  glassButton(
+                                    label: 'Favourites',
+                                    onTap: () {
+                                      Navigation.navigateToScreen(
+                                        context,
+                                        '/favourites',
+                                      );
+                                    },
+                                    context: context,
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                   
+                  );
+                }
 
-                  const SizedBox(height: 10),
-                  TextButton(
-                    onPressed: () {
-                      Navigation.navigateToScreen(context, '/listProduct');
-                    },
-                    child: Text('All products'),
-                  ),
-                  // Expanded(
-                  //   child: Padding(
-                  //     padding: EdgeInsetsGeometry.all(10.w),
-                  //     child: ListView.builder(
-                  //       itemCount: state.items.length,
-                  //       itemBuilder: (context, index) {
-                  //         return ListViewIem(
-                  //           title: Image.asset('assets/mock_data/profile.png'),
-                  //           info: state.items[index],
-                  //           width2: 250.w,
-                  //         );
-                  //       },
-                  //     ),
-                  //   ),
-                  // ),
-                ],
-              );
-            }
-
-            return const SizedBox();
-          },
+                return const SizedBox();
+              },
+            ),
+          ],
         ),
       ),
     );

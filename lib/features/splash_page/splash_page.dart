@@ -19,16 +19,8 @@ class _SplashPageState extends State<SplashPage> {
     super.initState();
     Future.delayed(const Duration(seconds: 2), () {
       if (mounted) {
-        Navigation.navigateAndRemove(context, '/login');
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (_) => BlocProvider.value(
-        //       value: UsersCubit(context.read<ApiService>())..fetchUsers(),
-        //       child: const UsersPage(),
-        //     ),
-        //   ),
-        // );
+        Navigation.navigateAndRemove(context, '/navbar');
+
       }
     });
   }

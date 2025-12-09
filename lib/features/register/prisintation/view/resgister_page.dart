@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:task1_cubit/core/style/font.dart';
 import 'package:task1_cubit/core/navigation.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:task1_cubit/features/register/data/local/user_local_storage.dart';
 import 'package:task1_cubit/features/register/prisintation/manager/register_cubit.dart';
 import 'package:task1_cubit/core/widget/custom_button.dart';
 import 'package:task1_cubit/core/widget/custom_password_field.dart';
@@ -9,12 +10,12 @@ import 'package:task1_cubit/core/widget/custom_text_field.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+   const RegisterPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (_) => RegisterCubit(),
+      create: (_) => RegisterCubit(UserLocalStorage()),
       child: BlocBuilder<RegisterCubit, RegisterState>(
         builder: (context, state) {
           final cubit = context.read<RegisterCubit>();
